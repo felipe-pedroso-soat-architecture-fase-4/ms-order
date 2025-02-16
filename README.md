@@ -1,3 +1,5 @@
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=felipe-pedroso-soat-architecture-fase-4_ms-order&metric=coverage&token=901a1e010b588492465d132053dda87f643fa3f0)](https://sonarcloud.io/summary/new_code?id=felipe-pedroso-soat-architecture-fase-4_ms-order)
+
 # ms-order
 
 ## Descrição do Projeto
