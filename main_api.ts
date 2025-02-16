@@ -56,7 +56,6 @@ async function createTables() {
       console.log("Tabela 'products' criada");
     }
   
-    // Criar tabela de pedidos
     const ordersExists = await db.schema.hasTable('orders');
     if (!ordersExists) {
       await db.schema.createTable('orders', (table) => {
@@ -68,7 +67,6 @@ async function createTables() {
       console.log("Tabela 'orders' criada");
     }
   
-    // Criar tabela de itens do pedido
     const orderItemsExists = await db.schema.hasTable('order_items');
     if (!orderItemsExists) {
       await db.schema.createTable('order_items', (table) => {
@@ -106,6 +104,5 @@ const getOrder = new GetOrder(orderRepository, productRepository, clientGateway)
 const getAllOrders = new GetAllOrders(orderRepository, productRepository, clientGateway);
 const updateOrderStatus = new UpdateOrderStatus(orderRepository);
 new OrderController(httpServer, createOrder, getOrder, getAllOrders, updateOrderStatus);
-
 
 httpServer.listen(port);
