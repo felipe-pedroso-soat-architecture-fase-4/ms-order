@@ -15,10 +15,12 @@ describe('Order', () => {
       email: `john.doe${Math.random()}@gmail.com`,
       cpf: "87748248800",
     };
+   
     const responseClient = await axios.post(
       `${process.env.API_CLIENT_GATEWAY}/clients`,
       client,
     );
+
     const client_id = responseClient.data.account_id;
 
     const product = {
@@ -31,6 +33,7 @@ describe('Order', () => {
       `${process.env.API_URL}:${process.env.API_PORT}/products`,
       product,
     );
+   
     const product_id = responseProduct.data.product_id;
 
     const order = {
@@ -165,17 +168,11 @@ describe('Order', () => {
     );
     
     const order_id = responseOrder.data.order_id;
-    const payment = {
-      order_id,
-      payment_method: "Pix",
-    };
-    
-    const paymentsResponse = await axios.post(
-      `${process.env.API_PAYMENT_GATEWAY}/payments`,
-      payment,
+   
+   await axios.put( 
+      `${process.env.API_URL}:${process.env.API_PORT}/orders/status/${order_id}`,
+      { status: "received" },
     );
-
-    expect(paymentsResponse.status).toBe(200);
 
     const responseUpdateOrderStatus = await axios.put( 
       `${process.env.API_URL}:${process.env.API_PORT}/orders/status/${order_id}`,

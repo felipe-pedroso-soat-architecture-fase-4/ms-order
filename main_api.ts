@@ -62,7 +62,7 @@ async function createTables() {
     if (!ordersExists) {
       await db.schema.createTable('orders', (table) => {
         table.uuid('order_id').primary();
-        table.uuid('client_id').nullable().references('account_id').inTable('clients').onDelete('CASCADE');
+        table.uuid('client_id').nullable(); 
         table.string('status').notNullable();
         table.timestamp('created_at').notNullable();
       });

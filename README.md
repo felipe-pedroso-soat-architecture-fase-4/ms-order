@@ -1,4 +1,4 @@
-# order-manager-api
+# ms-order
 
 ## Descrição do Projeto
 

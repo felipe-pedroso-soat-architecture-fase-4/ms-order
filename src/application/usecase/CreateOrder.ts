@@ -12,6 +12,7 @@ export class CreateOrder {
       try {
       await this.clientGateway.getClientById(client_id);
       } catch (error: any) {
+        console.log({ error })
         throw new Error(error.response.data.message);
       }
     }
