@@ -4,10 +4,5 @@ module.exports = {
   testEnvironment: "node",
   testMatch: ["**/test/**/*.ts"],
   testTimeout: 20000,
-  setupFiles: ["<rootDir>/jest.setup.js"],  
-  collectCoverageFrom: [
-    "**/src/**/*.ts",
-    "!src/**/*.test.{ts,tsx}",
-    "!src/**/*.yaml" 
-  ]
+  setupFiles: ["<rootDir>/jest.setup.js"], 
 };
